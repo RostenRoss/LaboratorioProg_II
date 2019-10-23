@@ -11,15 +11,17 @@ import tp8.interfaces.Vehiculo;
  *
  * @author Usuario
  */
-public class Moto implements Vehiculo{
+public class Coche implements Vehiculo{
     private int velocidad;
-    public Moto(int vel){
+
+    public Coche(int vel){
         this.velocidad=vel;
     }
+    
     public int getVelocidad() {
        return velocidad;
     }
-         
+     
     @Override
     public void acelerar(int vel) {
         
@@ -36,22 +38,24 @@ public class Moto implements Vehiculo{
     public void frenar(int fren) {
         if((this.velocidad-fren)<0){
             this.velocidad=0;
-            System.out.println("La moto ha frenado!!");
+            System.out.println("El auto ha frenado!!");
         }else{
-            this.velocidad=velocidad-fren;
+            this.velocidad=-fren;
         }
         
     }
 
     @Override
     public int plazas() {
-        return 2;
+        return 5;
     }
-    
-    @Override
+
+	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return "Velocidad: "+this.velocidad+", Plazas: "+this.plazas();
 	}
+
+   
     
 }
